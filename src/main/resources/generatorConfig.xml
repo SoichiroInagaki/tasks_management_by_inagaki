@@ -2,6 +2,7 @@
 <!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 <generatorConfiguration>
   <context id="context1" targetRuntime="Mybatis3">
+  	<plugin type="org.mybatis.generator.plugins.MapperAnnotationPlugin"/>
     <jdbcConnection driverClass="org.h2.Driver" connectionURL="jdbc:h2:file:./src/main/resources/testdb" userId="sa" password="" />
     
     <javaModelGenerator targetPackage="com.tq_ojd.tasks_management.infra.entity" targetProject="src/main/java">
@@ -17,9 +18,10 @@
       <property name="enableSubPackages" value="true" />
     </javaClientGenerator>
 
-    <table schema="" tableName="TASKS">
+    <table schema="" tableName="TASK">
       <property name="useACtualColumnNames" value="true" />
       <property name="mapUnderscoreToCameICase" value="true" />
+      <generatedKey column="id" sqlStatement="JDBC" />
     </table>
 
   </context>
