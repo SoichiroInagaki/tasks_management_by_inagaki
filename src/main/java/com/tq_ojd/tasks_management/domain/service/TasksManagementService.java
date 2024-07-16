@@ -7,14 +7,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.tq_ojd.tasks_management.domain.model.TaskObject;
-import com.tq_ojd.tasks_management.domain.repository.TaskRepository;
+import com.tq_ojd.tasks_management.domain.repository.TaskManagementRepository;
 
 @Service
 @Transactional
 public class TasksManagementService {
 
   @Autowired
-  private TaskRepository repository;
+  private TaskManagementRepository repository;
 
   public List<TaskObject> getAllTasks(){
     return repository.getAllTasks();

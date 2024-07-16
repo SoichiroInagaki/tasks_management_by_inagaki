@@ -3,20 +3,19 @@ package com.tq_ojd.tasks_management.infra.repository;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.tq_ojd.tasks_management.domain.model.TaskObject;
-import com.tq_ojd.tasks_management.domain.repository.TaskRepository;
+import com.tq_ojd.tasks_management.domain.repository.TaskManagementRepository;
 import com.tq_ojd.tasks_management.infra.entity.Task;
 import com.tq_ojd.tasks_management.infra.mapper.TaskMapper;
 
-import lombok.RequiredArgsConstructor;
-
 @Repository
-@RequiredArgsConstructor
-public class TaskRepositoryImpl implements TaskRepository{
+public class TaskManagementRepositoryImpl implements TaskManagementRepository{
 
-  private final TaskMapper mapper;
+  @Autowired
+  private TaskMapper mapper;
 
   private TaskObject convertToTaskObject(Task task){
     TaskObject domObjTask = new TaskObject();

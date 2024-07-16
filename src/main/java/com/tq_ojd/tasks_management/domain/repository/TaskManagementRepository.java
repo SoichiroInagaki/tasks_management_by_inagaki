@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.tq_ojd.tasks_management.domain.model.TaskObject;
 
-public interface TaskRepository{
+public interface TaskManagementRepository{
 
   TaskObject getTask(int id);
   List<TaskObject> getAllTasks();
