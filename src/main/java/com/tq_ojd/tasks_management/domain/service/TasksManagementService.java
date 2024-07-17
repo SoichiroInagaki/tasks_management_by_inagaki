@@ -24,9 +24,9 @@ public class TasksManagementService {
   //   return repository.getTask(id);  
   // }
 
-  // public void createTask(TaskObject task){
-  //   repository.createTask(task);
-  // }
+  public void createTask(TaskObject task){
+    repository.createTask(task);
+  }
   
   // public void updateTask(Integer id, TaskObject requestBody){
   //   TaskObject task = getTask(id);
