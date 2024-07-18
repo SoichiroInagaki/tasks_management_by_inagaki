@@ -63,7 +63,7 @@ public class TaskManagementRepositoryImpl implements TaskManagementRepository{
   @Override
   public void updateTask(TaskObject taskObject){
     Task task = convertToTask(taskObject);
-    mapper.insert(task);
+    mapper.updateByPrimaryKey(task);
   };
 
   @Override

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -25,9 +26,9 @@ public class TaskManagementController {
   private TaskObject convertToTaskObject(TaskForm taskForm){
     TaskObject taskObject = new TaskObject();
     taskObject.setTitle(taskForm.getTitle());
-    taskObject.setDescription(taskObject.getDescription());
-    taskObject.setCompleted(taskObject.isCompleted());
-    taskObject.setDeadline(taskObject.getDeadline());
+    taskObject.setDescription(taskForm.getDescription());
+    taskObject.setCompleted(taskForm.isCompleted());
+    taskObject.setDeadline(taskForm.getDeadline());
     return taskObject;
   }
 
@@ -48,6 +49,14 @@ public class TaskManagementController {
       TaskObject taskObject = convertToTaskObject(taskForm);
       tasksManagementService.createTask(taskObject);
       return ResponseEntity.ok(taskObject);
+  }
+
+  @PutMapping("/{id}")
+  public ResponseEntity<TaskObject> updateTask(@PathVariable int id, @RequestBody TaskForm taskForm){
+    TaskObject taskObject = convertToTaskObject(taskForm);
+    taskObject.setId(id);
+    tasksManagementService.updateTask(taskObject);
+    return ResponseEntity.ok(taskObject);
   }
   
 }
