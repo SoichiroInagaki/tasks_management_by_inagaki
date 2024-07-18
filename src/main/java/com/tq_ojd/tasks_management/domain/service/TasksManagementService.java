@@ -20,9 +20,9 @@ public class TasksManagementService {
     return repository.getAllTasks();
   }
 
-  // public TaskObject getTask(Integer id){
-  //   return repository.getTask(id);  
-  // }
+  public TaskObject getTask(int id){
+    return repository.getTask(id);  
+  }
 
   public void createTask(TaskObject task){
     repository.createTask(task);
