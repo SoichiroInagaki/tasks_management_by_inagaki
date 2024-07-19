@@ -32,8 +32,8 @@ public class TasksManagementService {
     repository.updateTask(taskObject);
   }
 
-  // public void deleteTask(Integer id){
-  //   getTask(id);
-  //   TaskRepository.deleteById(id);
-  // }
+  public void deleteTask(int id){
+    getTask(id);
+    repository.deleteTask(id);
+  }
 } 

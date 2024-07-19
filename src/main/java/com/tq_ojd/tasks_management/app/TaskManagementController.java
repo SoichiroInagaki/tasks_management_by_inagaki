@@ -7,6 +7,8 @@ import org.springframework.http.ResponseEntity;
 
 import com.tq_ojd.tasks_management.domain.model.TaskObject;
 import com.tq_ojd.tasks_management.domain.service.TasksManagementService;
+
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -57,6 +59,12 @@ public class TaskManagementController {
     taskObject.setId(id);
     tasksManagementService.updateTask(taskObject);
     return ResponseEntity.ok(taskObject);
+  }
+
+  @DeleteMapping("/{id}")
+  public ResponseEntity<?> delete(@PathVariable int id){
+    tasksManagementService.deleteTask(id);
+    return ResponseEntity.noContent().build();
   }
   
 }

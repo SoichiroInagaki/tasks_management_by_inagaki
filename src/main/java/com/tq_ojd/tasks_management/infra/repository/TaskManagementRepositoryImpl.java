@@ -67,8 +67,8 @@ public class TaskManagementRepositoryImpl implements TaskManagementRepository{
   };
 
   @Override
-  public void deleteTask(TaskObject taskObject){
-    mapper.deleteByPrimaryKey(taskObject.getId());
+  public void deleteTask(int id){
+    mapper.deleteByPrimaryKey(id);
   };
   
 }
