@@ -20,25 +20,19 @@ public class TasksManagementService {
     return repository.getAllTasks();
   }
 
-  // public TaskObject getTask(Integer id){
-  //   return repository.getTask(id);  
-  // }
+  public TaskObject getTask(int id){
+    return repository.getTask(id);  
+  }
 
   public void createTask(TaskObject task){
     repository.createTask(task);
   }
   
-  // public void updateTask(Integer id, TaskObject requestBody){
-  //   TaskObject task = getTask(id);
-  //   task.setTitle(requestBody.getTitle() == null ? task.getTitle() : requestBody.getTitle());
-  //   task.setDescription(requestBody.getDescription() == null ? task.getDescription() : requestBody.getDescription());
-  //   task.setCompleted(requestBody.getCompleted() == null ? task.getCompleted() : requestBody.getCompleted());
-  //   task.setDeadline(requestBody.getDeadline() == null ? task.getDeadline() : requestBody.getDeadline());
-  //   return TaskRepository.save(task);
-  // }
+  public void updateTask(TaskObject taskObject){
+    repository.updateTask(taskObject);
+  }
 
-  // public void deleteTask(Integer id){
-  //   getTask(id);
-  //   TaskRepository.deleteById(id);
-  // }
+  public void deleteTask(int id){
+    repository.deleteTask(id);
+  }
 } 

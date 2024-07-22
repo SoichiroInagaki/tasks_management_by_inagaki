@@ -18,22 +18,22 @@ public class TaskManagementRepositoryImpl implements TaskManagementRepository{
   private TaskMapper mapper;
 
   private TaskObject convertToTaskObject(Task task){
-    TaskObject domObjTask = new TaskObject();
-    domObjTask.setId(task.getId());
-    domObjTask.setTitle(task.getTitle());
-    domObjTask.setDescription(task.getDescription());
-    domObjTask.setCompleted(task.getCompleted());
-    domObjTask.setDeadline(task.getDeadline());
-    return domObjTask;
+    TaskObject taskObject = new TaskObject();
+    taskObject.setId(task.getId());
+    taskObject.setTitle(task.getTitle());
+    taskObject.setDescription(task.getDescription());
+    taskObject.setCompleted(task.getCompleted());
+    taskObject.setDeadline(task.getDeadline());
+    return taskObject;
   }
 
-  private Task convertToTask(TaskObject domObjTask){
+  private Task convertToTask(TaskObject taskObject){
     Task task = new Task();
-    task.setId(domObjTask.getId());
-    task.setTitle(domObjTask.getTitle());
-    task.setDescription(domObjTask.getDescription());
-    task.setCompleted(domObjTask.isCompleted());
-    task.setDeadline(domObjTask.getDeadline());
+    task.setId(taskObject.getId());
+    task.setTitle(taskObject.getTitle());
+    task.setDescription(taskObject.getDescription());
+    task.setCompleted(taskObject.isCompleted());
+    task.setDeadline(taskObject.getDeadline());
     return task;
   }
 
@@ -55,19 +55,20 @@ public class TaskManagementRepositoryImpl implements TaskManagementRepository{
   }; 
 
   @Override
-  public void createTask(TaskObject domObjTask){
-    mapper.deleteByPrimaryKey(domObjTask.getId());
+  public void createTask(TaskObject taskObject){
+    Task task = convertToTask(taskObject);
+    mapper.insert(task);
   };
 
   @Override
-  public void updateTask(TaskObject domObjTask){
-    Task task = convertToTask(domObjTask);
+  public void updateTask(TaskObject taskObject){
+    Task task = convertToTask(taskObject);
     mapper.updateByPrimaryKey(task);
   };
 
   @Override
-  public void deleteTask(TaskObject domObjTask){
-    mapper.deleteByPrimaryKey(domObjTask.getId());
+  public void deleteTask(int id){
+    mapper.deleteByPrimaryKey(id);
   };
   
 }

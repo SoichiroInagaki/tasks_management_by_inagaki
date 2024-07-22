@@ -10,6 +10,6 @@ public interface TaskManagementRepository{
   List<TaskObject> getAllTasks();
   void createTask(TaskObject task);
   void updateTask(TaskObject task);
-  void deleteTask(TaskObject task);
+  void deleteTask(int id);
 
 }
