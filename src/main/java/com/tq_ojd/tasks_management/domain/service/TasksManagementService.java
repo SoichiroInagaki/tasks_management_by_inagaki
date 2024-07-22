@@ -33,7 +33,6 @@ public class TasksManagementService {
   }
 
   public void deleteTask(int id){
-    getTask(id);
     repository.deleteTask(id);
   }
 } 

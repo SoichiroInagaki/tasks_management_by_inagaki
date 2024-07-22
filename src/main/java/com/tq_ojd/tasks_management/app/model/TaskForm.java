@@ -1,4 +1,4 @@
-package com.tq_ojd.tasks_management.app;
+package com.tq_ojd.tasks_management.app.model;
 
 import java.util.Date;
 
