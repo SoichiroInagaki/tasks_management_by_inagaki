@@ -11,6 +11,7 @@ import com.tq_ojd.tasks_management.app.model.TaskOutput;
 import com.tq_ojd.tasks_management.domain.model.TaskObject;
 import com.tq_ojd.tasks_management.domain.service.TasksManagementService;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("/tasks")
 public class TaskManagementController {
   
@@ -82,7 +84,7 @@ public class TaskManagementController {
   }
 
   @DeleteMapping("/{id}")
-  public ResponseEntity<Void> delete(@PathVariable int id){
+  public ResponseEntity<Void> deleteTask(@PathVariable int id){
     tasksManagementService.deleteTask(id);
     return ResponseEntity.ok().build();
   }

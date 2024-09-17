@@ -3,8 +3,12 @@
 <generatorConfiguration>
   <context id="context1" targetRuntime="Mybatis3">
   	<plugin type="org.mybatis.generator.plugins.MapperAnnotationPlugin"/>
-    <jdbcConnection driverClass="org.h2.Driver" connectionURL="jdbc:h2:file:./src/main/resources/testdb" userId="sa" password="" />
+    <jdbcConnection driverClass="org.h2.Driver" connectionURL="jdbc:h2:file:./testdb" userId="sa" password="" />
     
+    <javaTypeResolver>
+      <property name="useJSR310Types" value="true" />
+    </javaTypeResolver>
+
     <javaModelGenerator targetPackage="com.tq_ojd.tasks_management.infra.entity" targetProject="src/main/java">
       <property name="enableSubPackages" value="true" />
       <property name="trimStrings" value="true" />

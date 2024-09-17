@@ -1,6 +1,8 @@
 package com.tq_ojd.tasks_management.app.model;
 
-import java.util.Date;
+import java.time.LocalDateTime; 
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.Data;
 
@@ -10,6 +12,7 @@ public class TaskForm {
   private String title;
   private String description;
   private boolean completed;
-  private Date deadline;
+  @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ssZZZZZ")
+  private LocalDateTime deadline;
   
 }
