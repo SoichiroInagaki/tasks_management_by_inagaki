@@ -1,0 +1,115 @@
+openapi: '3.0.3'
+info:
+  title: "tasks_management"
+  version: '1.0'
+servers:
+  - url: "http://localhost:8080"
+components:
+  schemas:
+    RequestTask:
+      type: object
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+        completed:
+          type: boolean
+        deadline:
+          type: string
+          format: date-time
+          example: "2024-09-22T11:57:38+09:00"
+    ResposeTask:
+      type: object
+      properties:
+        id:
+          type: number
+        title:
+          type: string
+        description:
+          type: string
+        completed:
+          type: boolean
+        deadline:
+          type: string
+          format: date-time
+          example: "2024-09-22T11:57:38+09:00"
+  parameters:
+    id:
+      name: "id"
+      in: "path"
+      required: true
+      schema:
+        type: number
+paths:
+  /tasks:
+    get:
+      tags:
+        - "tasks"
+      operationId: "getAllTasks"
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ResposeTask"
+    post:
+      tags:
+        - "tasks"
+      operationId: "createTask"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RequestTask"
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ResposeTask"
+  /tasks/{id}:
+    get:
+      tags:
+        - "tasks"
+      operationId: "getTask"
+      parameters:
+        - $ref: "#/components/parameters/id"
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ResposeTask"
+    put:
+      tags:
+        - "tasks"
+      operationId: "updateTask"
+      parameters:
+        - $ref: "#/components/parameters/id"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RequestTask"
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ResposeTask"
+    delete:
+      tags:
+        - "tasks"
+      operationId: "deleteTask"
+      parameters:
+        - $ref: "#/components/parameters/id"
+      responses:
+        '200':
+          description: "OK。コンテンツなし。"
