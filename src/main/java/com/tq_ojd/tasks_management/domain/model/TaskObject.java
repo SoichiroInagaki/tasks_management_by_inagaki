@@ -1,6 +1,6 @@
 package com.tq_ojd.tasks_management.domain.model;
 
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 
 import lombok.Data;
 
@@ -11,6 +11,6 @@ public class TaskObject{
   private String title;
   private String description;
   private boolean completed;
-  private LocalDateTime deadline;
+  private OffsetDateTime deadline;
 
 }

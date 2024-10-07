@@ -140,10 +140,10 @@
 						</goals>
 						<configuration>
 							<inputSpec>${project.basedir}/openapi/openapi.yml</inputSpec>
-							<output>${project.basedir}/src/main</output>
+							<output>${project.basedir}</output>
 							<generatorName>spring</generatorName>
 							<configOptions>
-								<sourceFolder>java</sourceFolder>
+								<sourceFolder>src/main/java</sourceFolder>
 								<interfaceOnly>true</interfaceOnly>
 								<useSpringBoot3>true</useSpringBoot3>
 								<basePackage>com.tq_ojd.tasks_management.app.openapi</basePackage>

@@ -5,9 +5,8 @@
  */
 package com.tq_ojd.tasks_management.app.openapi.api;
 
-import java.math.BigDecimal;
 import com.tq_ojd.tasks_management.app.openapi.model.RequestTask;
-import com.tq_ojd.tasks_management.app.openapi.model.ResposeTask;
+import com.tq_ojd.tasks_management.app.openapi.model.ResponseTask;
 import io.swagger.v3.oas.annotations.ExternalDocumentation;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -34,7 +33,7 @@ import java.util.Map;
 import java.util.Optional;
 import jakarta.annotation.Generated;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-10-04T11:01:33.809425600+09:00[Asia/Tokyo]", comments = "Generator version: 7.8.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-10-07T09:31:38.750099900+09:00[Asia/Tokyo]", comments = "Generator version: 7.8.0")
 @Validated
 @Tag(name = "tasks", description = "the tasks API")
 public interface TasksApi {
@@ -54,7 +53,7 @@ public interface TasksApi {
         tags = { "tasks" },
         responses = {
             @ApiResponse(responseCode = "200", description = "OK", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = ResposeTask.class))
+                @Content(mediaType = "application/json", schema = @Schema(implementation = ResponseTask.class))
             })
         }
     )
@@ -65,13 +64,13 @@ public interface TasksApi {
         consumes = { "application/json" }
     )
     
-    default ResponseEntity<ResposeTask> createTask(
+    default ResponseEntity<ResponseTask> createTask(
         @Parameter(name = "RequestTask", description = "") @Valid @RequestBody(required = false) RequestTask requestTask
     ) {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"description\" : \"description\", \"id\" : 0.8008281904610115, \"completed\" : true, \"title\" : \"title\", \"deadline\" : \"2024-09-22T11:57:38+09:00\" }";
+                    String exampleString = "{ \"description\" : \"description\", \"id\" : 0, \"completed\" : true, \"title\" : \"title\", \"deadline\" : \"2024-09-22T11:57:38+09:00\" }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -101,7 +100,7 @@ public interface TasksApi {
     )
     
     default ResponseEntity<Void> deleteTask(
-        @Parameter(name = "id", description = "", required = true, in = ParameterIn.PATH) @PathVariable("id") BigDecimal id
+        @Parameter(name = "id", description = "", required = true, in = ParameterIn.PATH) @PathVariable("id") Integer id
     ) {
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
@@ -118,7 +117,7 @@ public interface TasksApi {
         tags = { "tasks" },
         responses = {
             @ApiResponse(responseCode = "200", description = "OK", content = {
-                @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = ResposeTask.class)))
+                @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = ResponseTask.class)))
             })
         }
     )
@@ -128,13 +127,13 @@ public interface TasksApi {
         produces = { "application/json" }
     )
     
-    default ResponseEntity<List<ResposeTask>> getAllTasks(
+    default ResponseEntity<List<ResponseTask>> getAllTasks(
         
     ) {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "[ { \"description\" : \"description\", \"id\" : 0.8008281904610115, \"completed\" : true, \"title\" : \"title\", \"deadline\" : \"2024-09-22T11:57:38+09:00\" }, { \"description\" : \"description\", \"id\" : 0.8008281904610115, \"completed\" : true, \"title\" : \"title\", \"deadline\" : \"2024-09-22T11:57:38+09:00\" } ]";
+                    String exampleString = "[ { \"description\" : \"description\", \"id\" : 0, \"completed\" : true, \"title\" : \"title\", \"deadline\" : \"2024-09-22T11:57:38+09:00\" }, { \"description\" : \"description\", \"id\" : 0, \"completed\" : true, \"title\" : \"title\", \"deadline\" : \"2024-09-22T11:57:38+09:00\" } ]";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -156,7 +155,7 @@ public interface TasksApi {
         tags = { "tasks" },
         responses = {
             @ApiResponse(responseCode = "200", description = "OK", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = ResposeTask.class))
+                @Content(mediaType = "application/json", schema = @Schema(implementation = ResponseTask.class))
             })
         }
     )
@@ -166,13 +165,13 @@ public interface TasksApi {
         produces = { "application/json" }
     )
     
-    default ResponseEntity<ResposeTask> getTask(
-        @Parameter(name = "id", description = "", required = true, in = ParameterIn.PATH) @PathVariable("id") BigDecimal id
+    default ResponseEntity<ResponseTask> getTask(
+        @Parameter(name = "id", description = "", required = true, in = ParameterIn.PATH) @PathVariable("id") Integer id
     ) {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"description\" : \"description\", \"id\" : 0.8008281904610115, \"completed\" : true, \"title\" : \"title\", \"deadline\" : \"2024-09-22T11:57:38+09:00\" }";
+                    String exampleString = "{ \"description\" : \"description\", \"id\" : 0, \"completed\" : true, \"title\" : \"title\", \"deadline\" : \"2024-09-22T11:57:38+09:00\" }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -195,7 +194,7 @@ public interface TasksApi {
         tags = { "tasks" },
         responses = {
             @ApiResponse(responseCode = "200", description = "OK", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = ResposeTask.class))
+                @Content(mediaType = "application/json", schema = @Schema(implementation = ResponseTask.class))
             })
         }
     )
@@ -206,14 +205,14 @@ public interface TasksApi {
         consumes = { "application/json" }
     )
     
-    default ResponseEntity<ResposeTask> updateTask(
-        @Parameter(name = "id", description = "", required = true, in = ParameterIn.PATH) @PathVariable("id") BigDecimal id,
+    default ResponseEntity<ResponseTask> updateTask(
+        @Parameter(name = "id", description = "", required = true, in = ParameterIn.PATH) @PathVariable("id") Integer id,
         @Parameter(name = "RequestTask", description = "") @Valid @RequestBody(required = false) RequestTask requestTask
     ) {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"description\" : \"description\", \"id\" : 0.8008281904610115, \"completed\" : true, \"title\" : \"title\", \"deadline\" : \"2024-09-22T11:57:38+09:00\" }";
+                    String exampleString = "{ \"description\" : \"description\", \"id\" : 0, \"completed\" : true, \"title\" : \"title\", \"deadline\" : \"2024-09-22T11:57:38+09:00\" }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }

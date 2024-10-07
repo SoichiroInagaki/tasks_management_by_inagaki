@@ -19,11 +19,11 @@ components:
           type: string
           format: date-time
           example: "2024-09-22T11:57:38+09:00"
-    ResposeTask:
+    ResponseTask:
       type: object
       properties:
         id:
-          type: number
+          type: integer
         title:
           type: string
         description:
@@ -40,7 +40,7 @@ components:
       in: "path"
       required: true
       schema:
-        type: number
+        type: integer
 paths:
   /tasks:
     get:
@@ -55,7 +55,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/ResposeTask"
+                  $ref: "#/components/schemas/ResponseTask"
     post:
       tags:
         - "tasks"
@@ -71,7 +71,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ResposeTask"
+                $ref: "#/components/schemas/ResponseTask"
   /tasks/{id}:
     get:
       tags:
@@ -85,7 +85,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ResposeTask"
+                $ref: "#/components/schemas/ResponseTask"
     put:
       tags:
         - "tasks"
@@ -103,7 +103,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ResposeTask"
+                $ref: "#/components/schemas/ResponseTask"
     delete:
       tags:
         - "tasks"

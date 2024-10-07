@@ -4,7 +4,6 @@ import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -18,13 +17,13 @@ import java.util.*;
 import jakarta.annotation.Generated;
 
 /**
- * ResposeTask
+ * ResponseTask
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-10-04T11:01:33.809425600+09:00[Asia/Tokyo]", comments = "Generator version: 7.8.0")
-public class ResposeTask {
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-10-07T09:31:38.750099900+09:00[Asia/Tokyo]", comments = "Generator version: 7.8.0")
+public class ResponseTask {
 
-  private BigDecimal id;
+  private Integer id;
 
   private String title;
 
@@ -35,7 +34,7 @@ public class ResposeTask {
   @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime deadline;
 
-  public ResposeTask id(BigDecimal id) {
+  public ResponseTask id(Integer id) {
     this.id = id;
     return this;
   }
@@ -44,18 +43,18 @@ public class ResposeTask {
    * Get id
    * @return id
    */
-  @Valid 
+  
   @Schema(name = "id", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("id")
-  public BigDecimal getId() {
+  public Integer getId() {
     return id;
   }
 
-  public void setId(BigDecimal id) {
+  public void setId(Integer id) {
     this.id = id;
   }
 
-  public ResposeTask title(String title) {
+  public ResponseTask title(String title) {
     this.title = title;
     return this;
   }
@@ -75,7 +74,7 @@ public class ResposeTask {
     this.title = title;
   }
 
-  public ResposeTask description(String description) {
+  public ResponseTask description(String description) {
     this.description = description;
     return this;
   }
@@ -95,7 +94,7 @@ public class ResposeTask {
     this.description = description;
   }
 
-  public ResposeTask completed(Boolean completed) {
+  public ResponseTask completed(Boolean completed) {
     this.completed = completed;
     return this;
   }
@@ -115,7 +114,7 @@ public class ResposeTask {
     this.completed = completed;
   }
 
-  public ResposeTask deadline(OffsetDateTime deadline) {
+  public ResponseTask deadline(OffsetDateTime deadline) {
     this.deadline = deadline;
     return this;
   }
@@ -143,12 +142,12 @@ public class ResposeTask {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ResposeTask resposeTask = (ResposeTask) o;
-    return Objects.equals(this.id, resposeTask.id) &&
-        Objects.equals(this.title, resposeTask.title) &&
-        Objects.equals(this.description, resposeTask.description) &&
-        Objects.equals(this.completed, resposeTask.completed) &&
-        Objects.equals(this.deadline, resposeTask.deadline);
+    ResponseTask responseTask = (ResponseTask) o;
+    return Objects.equals(this.id, responseTask.id) &&
+        Objects.equals(this.title, responseTask.title) &&
+        Objects.equals(this.description, responseTask.description) &&
+        Objects.equals(this.completed, responseTask.completed) &&
+        Objects.equals(this.deadline, responseTask.deadline);
   }
 
   @Override
@@ -159,7 +158,7 @@ public class ResposeTask {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ResposeTask {\n");
+    sb.append("class ResponseTask {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
